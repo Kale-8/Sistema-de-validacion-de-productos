@@ -40,3 +40,4 @@ for product in productsList:
     print(f"Descuento ({product['discount']}%): -${product['sub-total'] * (product['discount']/100):.2f}")
     print(f"Costo final    : ${product['full-price']:.2f}")
     print("="*40)
+# Test de git

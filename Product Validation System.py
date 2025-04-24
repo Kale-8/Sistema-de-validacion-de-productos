@@ -12,6 +12,8 @@ def validation(text, condition):
         except ValueError: alert()
 # Se crea una lista donde se almacenaran los productos que el usuario va a comprar
 productsList = []
+# Se crea una variable para mostrar el costo final de todos los productos
+finalCost = 0
 # Se crea un ciclo para habilitar la compra de 2 o mas productos
 while True:
 # Se crea un diccionario donde se guardaran los datos del producto
@@ -33,8 +35,6 @@ print('\n')
 print('='*40)
 print('DETALLE DE FACTURACIÓN')
 print('='*40)
-# Se crea una variable para mostrar el costo final de todos los productos
-finalCost = 0
 for product in productsList:
     finalCost += product['full-price']
     print(f'Producto       : {product['product']}')

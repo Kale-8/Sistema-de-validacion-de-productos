@@ -1,18 +1,19 @@
+
+# Se crea una funcion para alertar errores
+def alert():
+        print('\nEl numero ingresado es incorrecto, ingresalo nuevamente')
+# Se crea una funcion para ingresar los datos del producto con su respectiva condicion
+def validation(text, condition):
+    while True:
+        try:
+            number = float(input(f'\n{text} '))
+            if condition(number): return number
+            alert()
+        except ValueError: alert()
 # Se crea una lista donde se almacenaran los productos que el usuario va a comprar
 productsList = []
 # Se crea un ciclo para habilitar la compra de 2 o mas productos
 while True:
-# Se crea una funcion para alertar errores
-    def alert():
-        print('\nEl numero ingresado es incorrecto, ingresalo nuevamente')
-# Se crea una funcion para 
-    def validation(text, condition):
-        while True:
-            try:
-                number = float(input(f'\n{text} '))
-                if condition(number): return number
-                alert()
-            except ValueError: alert()
 # Se crea un diccionario donde se guardaran los datos del producto
     fullProduct = {}
 # Se declaran las llaves necesarias
@@ -27,17 +28,21 @@ while True:
 # Se valida si el usuario desea comprar otro producto
     print('\n-------> ¿Deseas comprar otro producto?\n\nSi: 1\n\nNo: 2')
     if input().strip() == '2': break
-# Print del resultado
-print("\n")
-print("="*40)
-print("DETALLE DE FACTURACIÓN")
-print("="*40)
+# Print del resultado de cada producto
+print('\n')
+print('='*40)
+print('DETALLE DE FACTURACIÓN')
+print('='*40)
+# Se crea una variable para mostrar el costo final de todos los productos
+finalCost = 0
 for product in productsList:
-    print(f"Producto       : {product['product']}")
-    print(f"Cantidad       : {product['amount']}")
-    print(f"Precio unitario: ${product['price']:.2f}")
-    print(f"Subtotal       : ${product['sub-total']:.2f}")
-    print(f"Descuento ({product['discount']}%): -${product['sub-total'] * (product['discount']/100):.2f}")
-    print(f"Costo final    : ${product['full-price']:.2f}")
-    print("="*40)
-# Test de git
+    finalCost += product['full-price']
+    print(f'Producto       : {product['product']}')
+    print(f'Cantidad       : {product['amount']}')
+    print(f'Precio unitario: ${product['price']:.2f}')
+    print(f'Subtotal       : ${product['sub-total']:.2f}')
+    print(f'Descuento ({product['discount']}%): -${product['sub-total'] * (product['discount']/100):.2f}')
+    print(f'Total          : ${product['full-price']:.2f}')
+    print('='*40)
+print(f'Costo final    : ${finalCost:.2f}')
+print('='*40)
